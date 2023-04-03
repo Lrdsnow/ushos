@@ -1,0 +1,8 @@
+echo 'NAME="UshOS"
+VERSION="1.0 (Genocide)"
+ID=ushos
+ID_LIKE="ubuntu debian"
+PRETTY_NAME="UshOS Genocide"
+VERSION_ID="1.0"
+VERSION_CODENAME=genocide
+UBUNTU_CODENAME=jammy' > /etc/os-release

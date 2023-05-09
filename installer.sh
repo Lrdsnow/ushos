@@ -52,11 +52,19 @@ case "$response" in
         echo Not installing devtools...
         ;;
 esac
-mkdir ~/tmp
-wget "https://lrdsnow.github.io/ushos/src/update-release" -O ~/tmp/update
-sudo sh ~/tmp/update
-wget "https://raw.githubusercontent.com/Lrdsnow/lmt/main/lmt.sh" -O ~/tmp/lmt
-sudo mv ~/tmp/lmt /usr/bin/lmt
-sudo chmod +x /usr/bin/lmt
-rm -rf ~/tmp
+read -r -p "Rewrite Release Info? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+        mkdir ~/tmp
+        wget "https://lrdsnow.github.io/ushos/src/update-release" -O ~/tmp/update
+        sudo sh ~/tmp/update
+        wget "https://raw.githubusercontent.com/Lrdsnow/lmt/main/lmt.sh" -O ~/tmp/lmt
+        sudo mv ~/tmp/lmt /usr/bin/lmt
+        sudo chmod +x /usr/bin/lmt
+        rm -rf ~/tmp
+    ;;
+    *)
+        echo "Not Rewriting Release Info..."
+    ;;
+esac
 echo "Succsessfully Installed UshOS"

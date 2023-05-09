@@ -52,7 +52,7 @@ case "$response" in
         echo Not installing devtools...
         ;;
 esac
-read -r -p "Rewrite Release Info? [y/N] " response
+read -r -p "Rewrite Release Info? (Looks cool, Breaks things) [y/N] " response
 case "$response" in
     [yY][eE][sS]|[yY]) 
         mkdir ~/tmp

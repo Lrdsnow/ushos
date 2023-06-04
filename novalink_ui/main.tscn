@@ -1,0 +1,204 @@
+[gd_scene load_steps=7 format=3 uid="uid://u5vk001tl1gy"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8hheg"]
+[ext_resource type="Theme" uid="uid://477bweqybrwj" path="res://app_buttons.tres" id="2_11p3s"]
+[ext_resource type="Theme" uid="uid://dhf627tw2gkb0" path="res://ui_buttons.tres" id="3_l4cun"]
+
+[sub_resource type="Animation" id="Animation_xc27k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainvbox:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [300.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("titlebar_right:offset_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [200.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("titlebar_left:offset_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-100.0]
+}
+
+[sub_resource type="Animation" id="Animation_25qbb"]
+resource_name = "start"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainvbox:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [300.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("titlebar_right:offset_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [200.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("titlebar_left:offset_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-100.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecnwu"]
+_data = {
+"RESET": SubResource("Animation_xc27k"),
+"start": SubResource("Animation_25qbb")
+}
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hheg")
+
+[node name="mainvbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.425926
+anchor_right = 1.0
+anchor_bottom = 0.992284
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="scroll" type="ScrollContainer" parent="mainvbox"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="apps" type="HBoxContainer" parent="mainvbox/scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="button1" type="Button" parent="mainvbox/scroll/apps"]
+custom_minimum_size = Vector2(243, 243)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_11p3s")
+theme_override_font_sizes/font_size = 30
+text = "Dummy Application"
+
+[node name="button2" type="Button" parent="mainvbox/scroll/apps"]
+custom_minimum_size = Vector2(243, 243)
+layout_mode = 2
+theme = ExtResource("2_11p3s")
+text = "Dummy Application"
+
+[node name="button3" type="Button" parent="mainvbox/scroll/apps"]
+custom_minimum_size = Vector2(243, 243)
+layout_mode = 2
+theme = ExtResource("2_11p3s")
+text = "Dummy Application"
+
+[node name="button4" type="Button" parent="mainvbox/scroll/apps"]
+custom_minimum_size = Vector2(243, 243)
+layout_mode = 2
+theme = ExtResource("2_11p3s")
+text = "Dummy Application"
+
+[node name="button5" type="Button" parent="mainvbox/scroll/apps"]
+custom_minimum_size = Vector2(243, 243)
+layout_mode = 2
+theme = ExtResource("2_11p3s")
+text = "Dummy Application"
+
+[node name="titlebar_left" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00976562
+anchor_top = 0.0116667
+anchor_right = 0.991211
+anchor_bottom = 0.146667
+offset_left = -100.0
+grow_horizontal = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="titlebar_left"]
+custom_minimum_size = Vector2(81, 81)
+layout_mode = 2
+theme = ExtResource("3_l4cun")
+text = "▢"
+
+[node name="titlebar_right" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00976562
+anchor_top = 0.0116667
+anchor_right = 0.991211
+anchor_bottom = 0.146667
+offset_right = 200.0
+grow_horizontal = 2
+mouse_filter = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="addacc" type="Button" parent="titlebar_right"]
+visible = false
+custom_minimum_size = Vector2(81, 81)
+layout_mode = 2
+theme = ExtResource("3_l4cun")
+text = "+"
+
+[node name="mainacc" type="Button" parent="titlebar_right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(81, 81)
+layout_mode = 2
+theme = ExtResource("3_l4cun")
+text = "Acc0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ecnwu")
+}

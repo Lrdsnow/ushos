@@ -1,0 +1,355 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxmv56ws46ok3"]
+
+[ext_resource type="Texture2D" uid="uid://scyu61js1uiq" path="res://icon.png" id="1_im57u"]
+[ext_resource type="Script" path="res://setup.gd" id="1_mk6bs"]
+[ext_resource type="Theme" uid="uid://dhf627tw2gkb0" path="res://ui_buttons.tres" id="3_i3034"]
+
+[sub_resource type="Animation" id="Animation_sqe7i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:offset_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [784.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [784.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:offset_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-784.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:offset_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-784.0]
+}
+
+[sub_resource type="Animation" id="Animation_t76ue"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:offset_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [784.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [784.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:offset_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-784.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:offset_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-784.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("first/Label:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("first/Label2:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1cfq6"]
+_data = {
+"RESET": SubResource("Animation_sqe7i"),
+"open": SubResource("Animation_t76ue")
+}
+
+[node name="setup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mk6bs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.265625
+anchor_top = -0.806667
+anchor_right = 1.26562
+anchor_bottom = 1.80667
+offset_left = 784.0
+offset_top = 784.0
+offset_right = -784.0
+offset_bottom = -784.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(784, 784)
+texture = ExtResource("1_im57u")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1cfq6")
+}
+
+[node name="first" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="first"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333008
+anchor_top = 0.09
+anchor_right = 0.665039
+anchor_bottom = 0.263333
+offset_right = 340.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.654902, 0, 1, 1)
+theme_override_font_sizes/font_size = 150
+text = "NovaLink"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="first"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.297852
+anchor_top = 0.736667
+anchor_right = 0.706055
+anchor_bottom = 0.913333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.654902, 0, 1, 1)
+text = "Welcome To Your New NovaLink Console
+
+Tap to Get Started"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="wifi" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="wifi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wifi Setup Goes Here"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="acc_stp" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="acc" type="VBoxContainer" parent="acc_stp"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="acc_stp/acc"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+theme_override_font_sizes/font_size = 20
+text = "Account Setup"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="usr" type="HBoxContainer" parent="acc_stp/acc"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="acc_stp/acc/usr"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+text = "Username: "
+
+[node name="LineEdit" type="LineEdit" parent="acc_stp/acc/usr"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+placeholder_text = "novalinkuser"
+alignment = 1
+expand_to_text_length = true
+
+[node name="pwd" type="HBoxContainer" parent="acc_stp/acc"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="acc_stp/acc/pwd"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+text = "Password: "
+
+[node name="LineEdit" type="LineEdit" parent="acc_stp/acc/pwd"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+placeholder_text = "password"
+alignment = 1
+secret = true
+expand_to_text_length = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="acc_stp/acc"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="acc_stp/acc/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+text = "Confirm Password: "
+
+[node name="LineEdit" type="LineEdit" parent="acc_stp/acc/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("3_i3034")
+placeholder_text = "password"
+alignment = 1
+secret = true
+expand_to_text_length = true
+
+[node name="Button" type="Button" parent="acc_stp/acc"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_i3034")
+text = "Continue"
+
+[node name="end" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="end"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -39.0
+offset_right = 158.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.654902, 0, 1, 1)
+text = "Your new NovaLink console is fully setup
+
+Your console will now reboot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="acc_stp/acc/Button" to="." method="_on_button_pressed"]

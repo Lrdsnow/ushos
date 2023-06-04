@@ -14,3 +14,6 @@
 ![screenshot0](https://github.com/Lrdsnow/ushos/blob/main/screenshots/screenshot0.png?raw=true)
 ![screenshot1](https://github.com/Lrdsnow/ushos/blob/main/screenshots/screenshot1.png?raw=true)
 ![screenshot2](https://github.com/Lrdsnow/ushos/blob/main/screenshots/screenshot2.png?raw=true)
+## Mobile/Console Screenshots:
+![novalink_screenshot0](https://github.com/Lrdsnow/ushos/blob/main/screenshots/novalink_screenshot0.png?raw=true)
+![novalink_screenshot1](https://github.com/Lrdsnow/ushos/blob/main/screenshots/novalink_screenshot1.png?raw=true)
